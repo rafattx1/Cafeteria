@@ -32,7 +32,7 @@ Cupom: `PRIMEIRAPAUSA`, com 5% de desconto nos produtos. Retirada gratuita; taxa
 - `src/style.css`: layout e adaptações para celular.
 - `public/assets/cafe.mp4`: vídeo fornecido, reproduzido sem som e em loop. Há controle para pausar e respeito a movimento reduzido.
 - `public/assets/poster.jpg`: quadro extraído do vídeo, exibido antes da reprodução.
-- `public/assets/*-collection.png`: fotografias apresentadas como sprites dos layouts fornecidos. Isso mantém as imagens locais, sem depender de links externos bloqueados neste ambiente. Para a versão comercial, substitua por fotos originais individuais em alta resolução.
+- `public/assets/*.webp`: fotografias ilustrativas geradas para os seis produtos e para a seção da casa. Cada imagem é um arquivo local independente, com enquadramento responsivo; não depende de serviços externos. São imagens ilustrativas, não fotografias reais dos produtos ou do estabelecimento.
 
 Fontes do Google são opcionais; fontes de sistema servem como fallback. Os documentos do ZIP foram utilizados como referência visual, sem executar scripts anexados.
 

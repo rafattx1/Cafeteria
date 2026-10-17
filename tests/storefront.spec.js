@@ -52,6 +52,12 @@ test('mobile sem rolagem horizontal e vídeo servido localmente',async({page})=>
  await expect.poll(()=>page.locator('video').evaluate(v=>v.paused)).toBe(true);
  const response=await page.request.get('/assets/cafe.mp4');
  expect(response.ok()).toBe(true);
+ await page.locator('.product-image img').evaluateAll(images=>images.forEach(image=>image.loading='eager'));
+ await expect(page.locator('.product-image img')).toHaveCount(6);
+ await expect.poll(()=>page.locator('.product-image img').evaluateAll(images=>images.every(image=>image.complete&&image.naturalWidth>0))).toBe(true);
+ await expect(page.locator('.house-photo img')).toHaveAttribute('src','/assets/cafe-interior.webp');
+ await expect.poll(()=>page.locator('.house-photo img').evaluate(image=>image.complete&&image.naturalWidth>0)).toBe(true);
+ await page.locator('img').evaluateAll(images=>Promise.all(images.map(image=>image.decode())));
  await page.screenshot({path:'/tmp/cafeteria-mobile.png',fullPage:true});
  await page.setViewportSize({width:1440,height:1000});
  await page.screenshot({path:'/tmp/cafeteria-desktop.png',fullPage:true});
